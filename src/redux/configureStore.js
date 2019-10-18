@@ -1,4 +1,4 @@
-import { createStore, applyMiddleWare, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './reducer'
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 
@@ -7,6 +7,6 @@ export default function configureStore(initialState) {
     return createStore(
         rootReducer,
         initialState,
-        composeEnhancers(applyMiddleWare(reduxImmutableStateInvariant()))
+        composeEnhancers(applyMiddleware(reduxImmutableStateInvariant()))
     )
 }
